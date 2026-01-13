@@ -61,6 +61,21 @@ now_if_args(function()
     -- - Execute `:=require('nvim-treesitter').get_available()`
     -- - Visit 'SUPPORTED_LANGUAGES.md' file at
     --   https://github.com/nvim-treesitter/nvim-treesitter/blob/main
+    'vim',
+    'query',
+    'json',
+    'yaml',
+    'printf',
+    'toml',
+    'markdown_inline',
+    'bash',
+    'go',
+    'gomod',
+    'gowork',
+    'gosum',
+    'python',
+    'regex',
+    'html',
   }
   local isnt_installed = function(lang)
     return #vim.api.nvim_get_runtime_file('parser/' .. lang .. '.*', false) == 0
@@ -149,10 +164,10 @@ later(function() add('rafamadriz/friendly-snippets') end)
 -- If you need them to work elsewhere, consider using other package managers.
 --
 -- You can use it like so:
--- now_if_args(function()
---   add('mason-org/mason.nvim')
---   require('mason').setup()
--- end)
+now_if_args(function()
+  add('mason-org/mason.nvim')
+  require('mason').setup()
+end)
 
 -- Beautiful, usable, well maintained color schemes outside of 'mini.nvim' and
 -- have full support of its highlight groups. Use if you don't like 'miniwinter'

@@ -27,7 +27,7 @@ end
 nmap('[p', '<Cmd>exe "put! " . v:register<CR>', 'Paste Above')
 nmap(']p', '<Cmd>exe "put "  . v:register<CR>', 'Paste Below')
 
-nmap(";", ":", "CMD enter command mode")
+nmap(";", ":", "CMD enter command mode") -- FIXME
 nmap("<S-h>", "<cmd>bprevious<cr>", "Prev Buffer")
 nmap("<S-l>", "<cmd>bnext<cr>", "Next Buffer")
 
