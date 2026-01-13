@@ -11,21 +11,21 @@
 -- An example helper to create a Normal mode mapping
 local nmap = function(lhs, rhs, desc)
   -- See `:h vim.keymap.set()`
-  vim.keymap.set('n', lhs, rhs, { desc = desc })
+  vim.keymap.set("n", lhs, rhs, { desc = desc })
 end
 local imap = function(lhs, rhs, desc)
   -- See `:h vim.keymap.set()`
-  vim.keymap.set('i', lhs, rhs, { desc = desc })
+  vim.keymap.set("i", lhs, rhs, { desc = desc })
 end
 local tmap = function(lhs, rhs, desc)
   -- See `:h vim.keymap.set()`
-  vim.keymap.set('t', lhs, rhs, { desc = desc })
+  vim.keymap.set("t", lhs, rhs, { desc = desc })
 end
 
 -- Paste linewise before/after current line
 -- Usage: `yiw` to yank a word and `]p` to put it on the next line.
-nmap('[p', '<Cmd>exe "put! " . v:register<CR>', 'Paste Above')
-nmap(']p', '<Cmd>exe "put "  . v:register<CR>', 'Paste Below')
+nmap("[p", '<Cmd>exe "put! " . v:register<CR>', "Paste Above")
+nmap("]p", '<Cmd>exe "put "  . v:register<CR>', "Paste Below")
 
 nmap(";", ":", "CMD enter command mode") -- FIXME
 nmap("<S-h>", "<cmd>bprevious<cr>", "Prev Buffer")
