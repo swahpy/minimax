@@ -145,6 +145,10 @@ later(function()
   -- - `:h conform-options`
   -- - `:h conform-formatters`
   require("conform").setup({
+    default_format_opts = {
+      -- Allow formatting from LSP server if no dedicated formatter is available
+      lsp_format = "fallback",
+    },
     formatters_by_ft = {
       css = { "biome" },
       go = { "goimports", "gofumpt" },
