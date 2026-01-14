@@ -607,6 +607,14 @@ later(function()
   MiniKeymap.map_multistep("i", "<BS>", { "minipairs_bs" })
   -- On `<Ctrl-BS> delete all preceding spaces`
   MiniKeymap.map_multistep("i", "<C-BS>", { "hungry_bs" })
+
+  local mode = { 'i', 'c', 'x', 's' }
+  MiniKeymap.map_combo(mode, 'jk', '<BS><BS><Esc>')
+  -- To not have to worry about the order of keys, also map "kj"
+  MiniKeymap.map_combo(mode, 'kj', '<BS><BS><Esc>')
+  -- Escape into Normal mode from Terminal mode
+  MiniKeymap.map_combo('t', 'jk', '<BS><BS><C-\\><C-n>')
+  MiniKeymap.map_combo('t', 'kj', '<BS><BS><C-\\><C-n>')
 end)
 
 -- Window with text overview. It is displayed on the right hand side. Can be used

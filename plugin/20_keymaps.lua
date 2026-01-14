@@ -17,21 +17,16 @@ local imap = function(lhs, rhs, desc)
   -- See `:h vim.keymap.set()`
   vim.keymap.set("i", lhs, rhs, { desc = desc })
 end
-local tmap = function(lhs, rhs, desc)
-  -- See `:h vim.keymap.set()`
-  vim.keymap.set("t", lhs, rhs, { desc = desc })
-end
 
 -- Paste linewise before/after current line
 -- Usage: `yiw` to yank a word and `]p` to put it on the next line.
 nmap("[p", '<Cmd>exe "put! " . v:register<CR>', "Paste Above")
 nmap("]p", '<Cmd>exe "put "  . v:register<CR>', "Paste Below")
 
-nmap(";", ":", "CMD enter command mode") -- FIXME
+nmap(";", ":", "CMD enter command mode")
 nmap("<S-h>", "<cmd>bprevious<cr>", "Prev Buffer")
 nmap("<S-l>", "<cmd>bnext<cr>", "Next Buffer")
 
-tmap("<Esc>", "<C-\\><C-n>", "Escape terminal mode")
 imap("<C-a>", "<ESC>^i", "move beginning of line")
 imap("<C-e>", "<End>", "move end of line")
 
