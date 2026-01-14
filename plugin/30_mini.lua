@@ -558,7 +558,11 @@ end)
 -- - `fxff` - move *f*orward onto next character "x", then next, and next again
 -- - `dt)` - *d*elete *t*ill next closing parenthesis (`)`)
 later(function()
-  require("mini.jump").setup()
+  require("mini.jump").setup({
+    mappings = {
+      repeat_jump = "",
+    },
+  })
 end)
 
 -- Jump within visible lines to pre-defined spots via iterative label filtering.
