@@ -179,6 +179,18 @@ later(function()
   add("rafamadriz/friendly-snippets")
 end)
 
+-- Others ===================================================================
+
+-- 'undotree' visualizes the undo history and makes it easy to browse and switch
+-- between different undo branches.
+now_if_args(function()
+  add("mbbill/undotree")
+
+  vim.g.undotree_ShortIndicators = 1
+  vim.g.undotree_DiffAutoOpen = 0
+  vim.g.undotree_SetFocusWhenToggle = 1
+end)
+
 -- Honorable mentions =========================================================
 
 -- 'mason-org/mason.nvim' (a.k.a. "Mason") is a great tool (package manager) for

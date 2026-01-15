@@ -262,4 +262,7 @@ vim.keymap.set(
   "<Cmd>lua MiniJump2d.start(MiniJump2d.builtin_opts.single_character)<CR>",
   { desc = "jump to letter" }
 )
+
+
+nmap_leader("u", "<cmd>UndotreeToggle<cr>", "Toggle undo tree")
 -- stylua: ignore end
