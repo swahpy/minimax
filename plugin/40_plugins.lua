@@ -272,6 +272,22 @@ now_if_args(function()
   })
 end)
 
+-- 'MeanderingProgrammer/render-markdown.nvim' improves viewing Markdown files in Neovim
+now_if_args(function()
+  add("MeanderingProgrammer/render-markdown.nvim")
+  require("render-markdown").setup({
+    -- Pre configured settings that will attempt to mimic various target user experiences.
+    -- User provided settings will take precedence.
+    -- | obsidian | mimic Obsidian UI                                          |
+    -- | lazy     | will attempt to stay up to date with LazyVim configuration |
+    -- | none     | does nothing                                               |
+    preset = "obsidian",
+    -- Filetypes this plugin will run on.
+    file_types = { "markdown", "codecompanion" },
+    completions = { lsp = { enabled = true } },
+  })
+end)
+
 -- Honorable mentions =========================================================
 
 -- 'mason-org/mason.nvim' (a.k.a. "Mason") is a great tool (package manager) for

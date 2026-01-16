@@ -52,6 +52,9 @@ vim.o.wrap           = false      -- Don't visually wrap lines (toggle with \w)
 
 vim.o.cursorlineopt  = 'screenline,number' -- Show cursor line per screen line
 
+-- Obsidian additional syntax features require 'conceallevel' to be set to 1 or 2
+vim.o.conceallevel   = 2
+
 -- Special UI symbols. More is set via 'mini.basics' later.
 vim.o.fillchars = 'eob: ,fold:╌'
 vim.o.listchars = 'extends:…,nbsp:␣,precedes:…,tab:> '
