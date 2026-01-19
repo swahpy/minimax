@@ -291,8 +291,19 @@ end)
 -- 'zbirenbaum/copilot.lua' is the pure lua replacement for github/copilot.vim.
 later(function()
   add("zbirenbaum/copilot.lua")
-  require("copilot").setup()
+  require("copilot").setup({
+    suggestion = {
+      keymap = {
+        accept = "<C-l>",
+      },
+    },
+  })
 end)
+
+-- 'github/copilot.vim' is a Vim/Neovim plugin for GitHub Copilot.
+-- later(function()
+--   add("github/copilot.vim")
+-- end)
 
 -- 'olimorris/codecompanion.nvim' enables Code with LLMs and Agents via the in-built adapters,
 -- the community adapters or by building your own.
