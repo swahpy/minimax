@@ -288,6 +288,82 @@ now_if_args(function()
   })
 end)
 
+-- 'zbirenbaum/copilot.lua' is the pure lua replacement for github/copilot.vim.
+later(function()
+  add("zbirenbaum/copilot.lua")
+  require("copilot").setup()
+end)
+
+-- 'olimorris/codecompanion.nvim' enables Code with LLMs and Agents via the in-built adapters,
+-- the community adapters or by building your own.
+later(function()
+  add({
+    source = "olimorris/codecompanion.nvim",
+    -- checkout = "v18.4.1",
+    -- monitor = "main",
+    depends = { "nvim-lua/plenary.nvim" },
+  })
+  require("codecompanion").setup({
+    interactions = {
+      chat = {
+        -- You can specify an adapter by name and model (both ACP and HTTP)
+        adapter = {
+          name = "copilot",
+          model = "gpt-5",
+        },
+      },
+      -- Or, just specify the adapter by name
+      inline = {
+        adapter = "copilot",
+        model = "gpt-5",
+      },
+      cmd = {
+        adapter = "copilot",
+        model = "gpt-5",
+      },
+      background = {
+        adapter = {
+          name = "copilot",
+          model = "gpt-5",
+        },
+      },
+    },
+    adapters = {
+      http = {
+        aiwave = function()
+          return require("codecompanion.adapters").extend("openai_compatible", {
+            env = {
+              api_key = "AIWAVE_API_KEY",
+              url = function()
+                return os.getenv("AIWAVE_URL")
+              end,
+            },
+            schema = {
+              model = {
+                order = 1,
+                mapping = "parameters",
+                type = "enum",
+                desc = "aiwave",
+                default = "gemini-3-pro-preview",
+                choices = {
+                  "gemini-flash-latest",
+                  "gemini-pro-latest",
+                  "gemini-3-pro-preview",
+                },
+              },
+              max_tokens = {
+                order = 2,
+                default = 9999,
+              },
+            },
+          })
+        end,
+      },
+    },
+  })
+  vim.cmd([[cab cc CodeCompanion]])
+end)
+
 -- Honorable mentions =========================================================
 
 -- 'mason-org/mason.nvim' (a.k.a. "Mason") is a great tool (package manager) for
