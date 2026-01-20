@@ -293,6 +293,7 @@ later(function()
   add("zbirenbaum/copilot.lua")
   require("copilot").setup({
     suggestion = {
+      auto_trigger = true,
       keymap = {
         accept = "<C-l>",
       },
