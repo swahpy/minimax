@@ -127,6 +127,7 @@ now_if_args(function()
   vim.lsp.enable({
     "lua_ls",
     "gopls",
+    "emmet_language_server",
   })
 end)
 
