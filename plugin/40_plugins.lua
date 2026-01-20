@@ -314,7 +314,7 @@ later(function()
     source = "olimorris/codecompanion.nvim",
     -- checkout = "v18.4.1",
     -- monitor = "main",
-    depends = { "nvim-lua/plenary.nvim" },
+    depends = { "nvim-lua/plenary.nvim", "ravitemer/mcphub.nvim" },
   })
   require("codecompanion").setup({
     interactions = {
@@ -338,6 +338,16 @@ later(function()
         adapter = {
           name = "copilot",
           model = "gpt-5",
+        },
+      },
+    },
+    extensions = {
+      mcphub = {
+        callback = "mcphub.extensions.codecompanion",
+        opts = {
+          make_vars = true,
+          make_slash_commands = true,
+          show_result_in_chat = true,
         },
       },
     },
