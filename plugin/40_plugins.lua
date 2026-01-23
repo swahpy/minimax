@@ -315,7 +315,15 @@ later(function()
     -- checkout = "v18.4.1",
     -- monitor = "main",
     depends = { "nvim-lua/plenary.nvim", "ravitemer/mcphub.nvim" },
+    hooks = {
+      post_checkout = function()
+        vim.cmd("npm install -g mcp-hub@latest")
+      end,
+    },
   })
+  -- setup mcphub
+  require("mcphub").setup()
+  -- setup codecompanion
   require("codecompanion").setup({
     interactions = {
       chat = {
