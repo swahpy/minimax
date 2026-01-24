@@ -128,6 +128,7 @@ now_if_args(function()
     "lua_ls",
     "gopls",
     "emmet_language_server",
+    "vtsls",
   })
 end)
 
