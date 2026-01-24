@@ -103,6 +103,14 @@ vim.o.completeopt = 'menuone,noselect,fuzzy,nosort' -- Use custom behavior
 local f = function() vim.cmd('setlocal formatoptions-=c formatoptions-=o') end
 _G.Config.new_autocmd('FileType', nil, f, "Proper 'formatoptions'")
 
+-- Disable indentscope for some filetypes where it is not useful
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "mason", "checkhealth", "markdown", "mcphub", "codecompanion"},
+  callback = function (args)
+    vim.b[args.buf].miniindentscope_disable = true
+  end,
+})
+
 -- There are other autocommands created by 'mini.basics'. See 'plugin/30_mini.lua'.
 
 -- Diagnostics ================================================================
