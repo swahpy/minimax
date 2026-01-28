@@ -225,6 +225,7 @@ now_if_args(function()
       sort = { "id", "aliases", "tags", "created", "updated" },
     },
     notes_subdir = "notes",
+    new_notes_location = "notes",
     note_id_func = function(title)
       local suffix = ""
       if title ~= nil then
