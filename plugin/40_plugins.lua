@@ -129,6 +129,7 @@ now_if_args(function()
     "gopls",
     "emmet_language_server",
     "vtsls",
+    "basedpyright",
   })
 end)
 
