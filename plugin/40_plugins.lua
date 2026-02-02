@@ -264,6 +264,9 @@ now_if_args(function()
       alias_format = "%B %-d, %Y",
       workdays_only = false,
     },
+    ui = {
+      enable = false,
+    },
     templates = {
       folder = "templates",
       date_format = "%Y-%m-%d",
