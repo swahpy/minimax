@@ -110,6 +110,13 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.b[args.buf].miniindentscope_disable = true
   end,
 })
+-- Disable indentscope for terminal
+vim.api.nvim_create_autocmd("TermOpen", {
+    pattern = "*",
+    callback = function()
+        vim.b.miniindentscope_disable = true
+    end,
+})
 
 -- There are other autocommands created by 'mini.basics'. See 'plugin/30_mini.lua'.
 
