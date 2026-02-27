@@ -35,6 +35,12 @@ nmap("<S-l>", "<cmd>bnext<cr>", "Next Buffer")
 imap("<C-a>", "<ESC>^i", "move beginning of line")
 imap("<C-e>", "<End>", "move end of line")
 
+-- change window size using arrow keys
+nmap("<Up>", ":resize -2<CR>", "resize current split smaller")
+nmap("<Down>", ":resize +2<CR>", "resize current split larger")
+nmap("<Left>", ":vertical resize -2<CR>", "resize current vsplit smaller")
+nmap("<Right>", ":vertical resize +2<CR>", "resize current vsplit larger")
+
 -- Many general mappings are created by 'mini.basics'. See 'plugin/30_mini.lua'
 
 -- stylua: ignore start
