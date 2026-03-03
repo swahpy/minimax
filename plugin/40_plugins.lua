@@ -329,7 +329,7 @@ later(function()
     },
   })
   -- setup mcphub
-  require("mcphub").setup()
+  -- require("mcphub").setup()
   -- setup codecompanion
   require("codecompanion").setup({
     interactions = {
@@ -435,5 +435,5 @@ MiniDeps.now(function()
   add("oskarnurm/koda.nvim")
 
   -- Enable only one
-  vim.cmd("color koda")
+  vim.cmd("color koda-moss")
 end)
