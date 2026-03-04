@@ -24,8 +24,7 @@
 -- - Step one enables everything that is needed for first draw with `now()`.
 --   Sometimes is needed only if Neovim is started as `nvim -- path/to/file`.
 -- - Everything else is delayed until the first draw with `later()`.
-local now, later = MiniDeps.now, MiniDeps.later
-local now_if_args = _G.Config.now_if_args
+local now, now_if_args, later = Config.now, Config.now_if_args, Config.later
 
 -- Step one ===================================================================
 -- Enable 'miniwinter' color scheme. It comes with 'mini.nvim' and uses 'mini.hues'.
@@ -491,8 +490,8 @@ later(function()
   -- - `g?` to see available bookmarks
   local add_marks = function()
     MiniFiles.set_bookmark("c", vim.fn.stdpath("config"), { desc = "Config" })
-    local minideps_plugins = vim.fn.stdpath("data") .. "/site/pack/deps/opt"
-    MiniFiles.set_bookmark("p", minideps_plugins, { desc = "Plugins" })
+    local vimpack_plugins = vim.fn.stdpath("data") .. "/site/pack/core/opt"
+    MiniFiles.set_bookmark("p", vimpack_plugins, { desc = "Plugins" })
     MiniFiles.set_bookmark("w", vim.fn.getcwd, { desc = "Working directory" })
   end
   _G.Config.new_autocmd("User", "MiniFilesExplorerOpen", add_marks, "Add bookmarks")
@@ -608,13 +607,13 @@ later(function()
   -- On `<Ctrl-BS> delete all preceding spaces`
   MiniKeymap.map_multistep("i", "<C-BS>", { "hungry_bs" })
 
-  local mode = { 'i', 'c', 'x', 's' }
-  MiniKeymap.map_combo(mode, 'jk', '<BS><BS><Esc>')
+  local mode = { "i", "c", "x", "s" }
+  MiniKeymap.map_combo(mode, "jk", "<BS><BS><Esc>")
   -- To not have to worry about the order of keys, also map "kj"
-  MiniKeymap.map_combo(mode, 'kj', '<BS><BS><Esc>')
+  MiniKeymap.map_combo(mode, "kj", "<BS><BS><Esc>")
   -- Escape into Normal mode from Terminal mode
-  MiniKeymap.map_combo('t', 'jk', '<BS><BS><C-\\><C-n>')
-  MiniKeymap.map_combo('t', 'kj', '<BS><BS><C-\\><C-n>')
+  MiniKeymap.map_combo("t", "jk", "<BS><BS><C-\\><C-n>")
+  MiniKeymap.map_combo("t", "kj", "<BS><BS><C-\\><C-n>")
 end)
 
 -- Window with text overview. It is displayed on the right hand side. Can be used

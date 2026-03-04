@@ -9,8 +9,8 @@
 -- Use this file to install and configure other such plugins.
 
 -- Make concise helpers for installing/adding plugins in two stages
-local add, later = MiniDeps.add, MiniDeps.later
-local now_if_args = _G.Config.now_if_args
+local add = vim.pack.add
+local now_if_args, later = Config.now_if_args, Config.later
 
 -- Tree-sitter ================================================================
 
@@ -38,22 +38,16 @@ local now_if_args = _G.Config.now_if_args
 --   with `:TSInstall <language>`. Be sure to have necessary system dependencies
 --   (see MiniMax README section for software requirements).
 now_if_args(function()
-  add({
-    source = "nvim-treesitter/nvim-treesitter",
-    -- Update tree-sitter parser after plugin is updated
-    hooks = {
-      post_checkout = function()
-        vim.cmd("TSUpdate")
-      end,
-    },
-  })
-  add({
-    source = "nvim-treesitter/nvim-treesitter-textobjects",
-    -- Use `main` branch since `master` branch is frozen, yet still default
-    -- It is needed for compatibility with 'nvim-treesitter' `main` branch
-    checkout = "main",
-  })
+  -- Define hook to update tree-sitter parsers after plugin is updated
+  local ts_update = function()
+    vim.cmd("TSUpdate")
+  end
+  Config.on_packchanged("nvim-treesitter", { "update" }, ts_update, ":TSUpdate")
 
+  add({
+    "https://github.com/nvim-treesitter/nvim-treesitter",
+    "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
+  })
   -- Define languages which will have parsers installed and auto enabled
   local languages = {
     -- These are already pre-installed with Neovim. Used as an example.
@@ -119,7 +113,7 @@ end)
 --
 -- Add it now if file (and not 'mini.starter') is shown after startup.
 now_if_args(function()
-  add("neovim/nvim-lspconfig")
+  add({ "https://github.com/neovim/nvim-lspconfig" })
 
   -- Use `:h vim.lsp.enable()` to automatically enable language server based on
   -- the rules provided by 'nvim-lspconfig'.
@@ -143,7 +137,7 @@ end)
 -- The 'stevearc/conform.nvim' plugin is a good and maintained solution for easier
 -- formatting setup.
 later(function()
-  add("stevearc/conform.nvim")
+  add({ "https://github.com/stevearc/conform.nvim" })
 
   -- See also:
   -- - `:h Conform`
@@ -180,7 +174,7 @@ end)
 -- 'mini.snippets' is designed to work with it as seamlessly as possible.
 -- See `:h MiniSnippets.gen_loader.from_lang()`.
 later(function()
-  add("rafamadriz/friendly-snippets")
+  add({ "https://github.com/rafamadriz/friendly-snippets" })
 end)
 
 -- Others ===================================================================
@@ -188,7 +182,7 @@ end)
 -- 'mbbill/undotree' visualizes the undo history and makes it easy to browse and switch
 -- between different undo branches.
 now_if_args(function()
-  add("mbbill/undotree")
+  add({ "https://github.com/mbbill/undotree" })
 
   vim.g.undotree_ShortIndicators = 1
   vim.g.undotree_DiffAutoOpen = 0
@@ -199,7 +193,7 @@ end)
 -- a simple, markdown-based notes app, but love Neovim too much to stand typing
 -- characters into anything else.
 now_if_args(function()
-  add("obsidian-nvim/obsidian.nvim")
+  add({ "https://github.com/obsidian-nvim/obsidian.nvim" })
   local function get_current_datetime_string()
     return os.date("%Y-%m-%d %H:%M:%S") -- Example: 2025-10-14 10:30:00
   end
@@ -282,7 +276,7 @@ end)
 
 -- 'MeanderingProgrammer/render-markdown.nvim' improves viewing Markdown files in Neovim
 now_if_args(function()
-  add("MeanderingProgrammer/render-markdown.nvim")
+  add({ "https://github.com/MeanderingProgrammer/render-markdown.nvim" })
   require("render-markdown").setup({
     -- Pre configured settings that will attempt to mimic various target user experiences.
     -- User provided settings will take precedence.
@@ -298,7 +292,7 @@ end)
 
 -- 'zbirenbaum/copilot.lua' is the pure lua replacement for github/copilot.vim.
 later(function()
-  add("zbirenbaum/copilot.lua")
+  add({ "https://github.com/zbirenbaum/copilot.lua" })
   require("copilot").setup({
     suggestion = {
       auto_trigger = true,
@@ -318,16 +312,10 @@ end)
 -- the community adapters or by building your own.
 later(function()
   add({
-    source = "olimorris/codecompanion.nvim",
-    -- checkout = "v18.4.1",
-    -- monitor = "main",
-    depends = { "nvim-lua/plenary.nvim", "ravitemer/mcphub.nvim" },
-    hooks = {
-      post_checkout = function()
-        vim.cmd("npm install -g mcp-hub@latest")
-      end,
-    },
+    "https://github.com/nvim-lua/plenary.nvim",
+    "https://github.com/olimorris/codecompanion.nvim",
   })
+  -- add({ "https://github.com/ravitemer/mcphub.nvim" })
   -- setup mcphub
   -- require("mcphub").setup()
   -- setup codecompanion
@@ -357,21 +345,21 @@ later(function()
       },
     },
     extensions = {
-      mcphub = {
-        callback = "mcphub.extensions.codecompanion",
-        opts = {
-          -- MCP Tools
-          make_tools = true, -- Make individual tools (@server__tool) and server groups (@server) from MCP servers
-          show_server_tools_in_chat = true, -- Show individual tools in chat completion (when make_tools=true)
-          add_mcp_prefix_to_tool_names = false, -- Add mcp__ prefix (e.g `@mcp__github`, `@mcp__neovim__list_issues`)
-          show_result_in_chat = true, -- Show tool results directly in chat buffer
-          format_tool = nil, -- function(tool_name:string, tool: CodeCompanion.Agent.Tool) : string Function to format tool names to show in the chat buffer
-          -- MCP Resources
-          make_vars = true, -- Convert MCP resources to #variables for prompts
-          -- MCP Prompts
-          make_slash_commands = true, -- Add MCP prompts as /slash commands
-        },
-      },
+      -- mcphub = {
+      --   callback = "mcphub.extensions.codecompanion",
+      --   opts = {
+      --     -- MCP Tools
+      --     make_tools = true, -- Make individual tools (@server__tool) and server groups (@server) from MCP servers
+      --     show_server_tools_in_chat = true, -- Show individual tools in chat completion (when make_tools=true)
+      --     add_mcp_prefix_to_tool_names = false, -- Add mcp__ prefix (e.g `@mcp__github`, `@mcp__neovim__list_issues`)
+      --     show_result_in_chat = true, -- Show tool results directly in chat buffer
+      --     format_tool = nil, -- function(tool_name:string, tool: CodeCompanion.Agent.Tool) : string Function to format tool names to show in the chat buffer
+      --     -- MCP Resources
+      --     make_vars = true, -- Convert MCP resources to #variables for prompts
+      --     -- MCP Prompts
+      --     make_slash_commands = true, -- Add MCP prompts as /slash commands
+      --   },
+      -- },
     },
     adapters = {
       http = {
@@ -420,19 +408,21 @@ end)
 --
 -- You can use it like so:
 now_if_args(function()
-  add("mason-org/mason.nvim")
+  add({ "https://github.com/mason-org/mason.nvim" })
   require("mason").setup()
 end)
 
 -- Beautiful, usable, well maintained color schemes outside of 'mini.nvim' and
 -- have full support of its highlight groups. Use if you don't like 'miniwinter'
 -- enabled in 'plugin/30_mini.lua' or other suggested 'mini.hues' based ones.
-MiniDeps.now(function()
+Config.now(function()
   -- Install only those that you need
-  -- add('sainnhe/everforest')
-  -- add('Shatur/neovim-ayu')
-  -- add('ellisonleao/gruvbox.nvim')
-  add("oskarnurm/koda.nvim")
+  add({
+    -- "https://github.com/sainnhe/everforest",
+    -- "https://github.com/Shatur/neovim-ayu",
+    -- "https://github.com/ellisonleao/gruvbox.nvim",
+    "https://github.com/oskarnurm/koda.nvim",
+  })
 
   -- Enable only one
   vim.cmd("color koda-moss")
