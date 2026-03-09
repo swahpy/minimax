@@ -1,7 +1,11 @@
 {
   "plugins": {
+    "claudecode.nvim": {
+      "rev": "432121f0f5b9bda041030d1e9e83b7ba3a93dd8f",
+      "src": "https://github.com/coder/claudecode.nvim"
+    },
     "codecompanion.nvim": {
-      "rev": "ed367944ece02d0ab2a2552ba3ad0b092f1a2144",
+      "rev": "bade4034395d327f1fd3defd34cce4793e412a27",
       "src": "https://github.com/olimorris/codecompanion.nvim"
     },
     "conform.nvim": {
@@ -9,7 +13,7 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "copilot.lua": {
-      "rev": "3061c49e0e2619915af90fb5a067cac90a20e896",
+      "rev": "437b18f7db78a0ec2bea05dde37791019913e547",
       "src": "https://github.com/zbirenbaum/copilot.lua"
     },
     "friendly-snippets": {
@@ -17,7 +21,7 @@
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "koda.nvim": {
-      "rev": "44a60a25e8f2a65ef929f814850efbf0db7735d4",
+      "rev": "b65c7fbf1dff2550f314b0220012497ae6669108",
       "src": "https://github.com/oskarnurm/koda.nvim"
     },
     "mason.nvim": {
@@ -29,19 +33,19 @@
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "nvim-lspconfig": {
-      "rev": "ead0f5f342d8d323441e7d4b88f0fc436a81ad5f",
+      "rev": "2163c54bb6cfec53e3e555665ada945b8c8331b9",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
-      "rev": "972f378653c794b0ff82282a844732695064b70f",
+      "rev": "ebe76eb800d4e8df754fc96f8a7b84f578224a97",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "nvim-treesitter-textobjects": {
-      "rev": "a0e182ae21fda68c59d1f36c9ed45600aef50311",
+      "rev": "0bc4ef0a34d80fd6e67b59bd71fcbb0ef9ef4756",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
     },
     "obsidian.nvim": {
-      "rev": "3094a93d1022f969cc297d2d261c56f5565cb3d6",
+      "rev": "052235c1e7b7c2655c3d743b3779f42e7975e2d0",
       "src": "https://github.com/obsidian-nvim/obsidian.nvim"
     },
     "plenary.nvim": {
@@ -49,7 +53,7 @@
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "render-markdown.nvim": {
-      "rev": "1641b434bda26e0f4e3610985b3357fc213cf834",
+      "rev": "907505549edc2f90c82fc429348af03ee8c3a825",
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "undotree": {
