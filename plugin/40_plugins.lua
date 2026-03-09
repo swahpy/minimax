@@ -399,6 +399,11 @@ later(function()
   vim.cmd([[cab cc CodeCompanion]])
 end)
 
+later(function()
+  add({ "https://github.com/coder/claudecode.nvim" })
+  require("claudecode").setup()
+end)
+
 -- Honorable mentions =========================================================
 
 -- 'mason-org/mason.nvim' (a.k.a. "Mason") is a great tool (package manager) for
