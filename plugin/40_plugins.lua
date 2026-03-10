@@ -401,7 +401,9 @@ end)
 
 later(function()
   add({ "https://github.com/coder/claudecode.nvim" })
-  require("claudecode").setup()
+  require("claudecode").setup({
+    terminal_cmd = "claude --model claude-sonnet-4-5-20250929",
+  })
 end)
 
 -- Honorable mentions =========================================================
