@@ -394,7 +394,7 @@ end)
 --
 -- It also works with snippet candidates provided by LSP server. Best experience
 -- when paired with 'mini.snippets' (which is set up in this file).
-later(function()
+now_if_args(function()
   -- Customize post-processing of LSP responses for a better user experience.
   -- Don't show 'Text' suggestions (usually noisy) and show snippets last.
   local process_items_opts = { kind_priority = { Text = -1, Snippet = 99 } }
