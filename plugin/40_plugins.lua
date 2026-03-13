@@ -293,17 +293,17 @@ now_if_args(function()
 end)
 
 -- 'zbirenbaum/copilot.lua' is the pure lua replacement for github/copilot.vim.
--- later(function()
---   add({ "https://github.com/zbirenbaum/copilot.lua" })
---   require("copilot").setup({
---     suggestion = {
---       auto_trigger = true,
---       keymap = {
---         accept = "<M-i>",
---       },
---     },
---   })
--- end)
+later(function()
+  add({ "https://github.com/zbirenbaum/copilot.lua" })
+  require("copilot").setup({
+    suggestion = {
+      auto_trigger = true,
+      keymap = {
+        accept = "<M-i>",
+      },
+    },
+  })
+end)
 
 -- 'github/copilot.vim' is a Vim/Neovim plugin for GitHub Copilot.
 -- later(function()
@@ -311,32 +311,32 @@ end)
 -- end)
 
 -- '': Minuet offers code completion as-you-type from popular LLMs including OpenAI, Gemini, Claude, Ollama, Llama.cpp, Codestral, and more.
-later(function()
-  add({
-    "https://github.com/nvim-lua/plenary.nvim",
-    "https://github.com/milanglacier/minuet-ai.nvim",
-  })
-  require("minuet").setup({
-    provider = "gemini",
-    virtualtext = {
-      auto_trigger_ft = { "*" },
-      keymap = {
-        -- accept whole completion
-        accept = "<A-a>",
-        -- accept one line
-        accept_line = "<A-i>",
-        -- accept n lines (prompts for number)
-        -- e.g. "A-z 2 CR" will accept 2 lines
-        accept_n_lines = "<A-n>",
-        -- Cycle to prev completion item, or manually invoke completion
-        prev = "<A-[>",
-        -- Cycle to next completion item, or manually invoke completion
-        next = "<A-]>",
-        dismiss = "<A-e>",
-      },
-    },
-  })
-end)
+-- later(function()
+--   add({
+--     "https://github.com/nvim-lua/plenary.nvim",
+--     "https://github.com/milanglacier/minuet-ai.nvim",
+--   })
+--   require("minuet").setup({
+--     provider = "gemini",
+--     virtualtext = {
+--       auto_trigger_ft = { "*" },
+--       keymap = {
+--         -- accept whole completion
+--         accept = "<A-a>",
+--         -- accept one line
+--         accept_line = "<A-i>",
+--         -- accept n lines (prompts for number)
+--         -- e.g. "A-z 2 CR" will accept 2 lines
+--         accept_n_lines = "<A-n>",
+--         -- Cycle to prev completion item, or manually invoke completion
+--         prev = "<A-[>",
+--         -- Cycle to next completion item, or manually invoke completion
+--         next = "<A-]>",
+--         dismiss = "<A-e>",
+--       },
+--     },
+--   })
+-- end)
 
 later(function()
   add({ "https://github.com/coder/claudecode.nvim" })
