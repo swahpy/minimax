@@ -293,110 +293,49 @@ now_if_args(function()
 end)
 
 -- 'zbirenbaum/copilot.lua' is the pure lua replacement for github/copilot.vim.
-later(function()
-  add({ "https://github.com/zbirenbaum/copilot.lua" })
-  require("copilot").setup({
-    suggestion = {
-      auto_trigger = true,
-      keymap = {
-        accept = "<M-i>",
-      },
-    },
-  })
-end)
+-- later(function()
+--   add({ "https://github.com/zbirenbaum/copilot.lua" })
+--   require("copilot").setup({
+--     suggestion = {
+--       auto_trigger = true,
+--       keymap = {
+--         accept = "<M-i>",
+--       },
+--     },
+--   })
+-- end)
 
 -- 'github/copilot.vim' is a Vim/Neovim plugin for GitHub Copilot.
 -- later(function()
 --   add("github/copilot.vim")
 -- end)
 
--- 'olimorris/codecompanion.nvim' enables Code with LLMs and Agents via the in-built adapters,
--- the community adapters or by building your own.
+-- '': Minuet offers code completion as-you-type from popular LLMs including OpenAI, Gemini, Claude, Ollama, Llama.cpp, Codestral, and more.
 later(function()
   add({
     "https://github.com/nvim-lua/plenary.nvim",
-    "https://github.com/olimorris/codecompanion.nvim",
+    "https://github.com/milanglacier/minuet-ai.nvim",
   })
-  -- add({ "https://github.com/ravitemer/mcphub.nvim" })
-  -- setup mcphub
-  -- require("mcphub").setup()
-  -- setup codecompanion
-  require("codecompanion").setup({
-    interactions = {
-      chat = {
-        -- You can specify an adapter by name and model (both ACP and HTTP)
-        adapter = {
-          name = "copilot",
-          model = "gpt-5",
-        },
-      },
-      -- Or, just specify the adapter by name
-      inline = {
-        adapter = "copilot",
-        model = "gpt-5",
-      },
-      cmd = {
-        adapter = "copilot",
-        model = "gpt-5",
-      },
-      background = {
-        adapter = {
-          name = "copilot",
-          model = "gpt-5",
-        },
-      },
-    },
-    extensions = {
-      -- mcphub = {
-      --   callback = "mcphub.extensions.codecompanion",
-      --   opts = {
-      --     -- MCP Tools
-      --     make_tools = true, -- Make individual tools (@server__tool) and server groups (@server) from MCP servers
-      --     show_server_tools_in_chat = true, -- Show individual tools in chat completion (when make_tools=true)
-      --     add_mcp_prefix_to_tool_names = false, -- Add mcp__ prefix (e.g `@mcp__github`, `@mcp__neovim__list_issues`)
-      --     show_result_in_chat = true, -- Show tool results directly in chat buffer
-      --     format_tool = nil, -- function(tool_name:string, tool: CodeCompanion.Agent.Tool) : string Function to format tool names to show in the chat buffer
-      --     -- MCP Resources
-      --     make_vars = true, -- Convert MCP resources to #variables for prompts
-      --     -- MCP Prompts
-      --     make_slash_commands = true, -- Add MCP prompts as /slash commands
-      --   },
-      -- },
-    },
-    adapters = {
-      http = {
-        aiwave = function()
-          return require("codecompanion.adapters").extend("openai_compatible", {
-            env = {
-              api_key = "AIWAVE_API_KEY",
-              url = function()
-                return os.getenv("AIWAVE_URL")
-              end,
-            },
-            schema = {
-              model = {
-                order = 1,
-                mapping = "parameters",
-                type = "enum",
-                desc = "aiwave",
-                default = "gemini-3-pro-preview",
-                choices = {
-                  "gemini-flash-latest",
-                  "gemini-pro-latest",
-                  "gemini-3-pro-preview",
-                },
-              },
-              max_tokens = {
-                order = 2,
-                default = 9999,
-              },
-            },
-          })
-        end,
+  require("minuet").setup({
+    provider = "gemini",
+    virtualtext = {
+      auto_trigger_ft = { "*" },
+      keymap = {
+        -- accept whole completion
+        accept = "<A-a>",
+        -- accept one line
+        accept_line = "<A-i>",
+        -- accept n lines (prompts for number)
+        -- e.g. "A-z 2 CR" will accept 2 lines
+        accept_n_lines = "<A-n>",
+        -- Cycle to prev completion item, or manually invoke completion
+        prev = "<A-[>",
+        -- Cycle to next completion item, or manually invoke completion
+        next = "<A-]>",
+        dismiss = "<A-e>",
       },
     },
   })
-  vim.cmd([[cab cc CodeCompanion]])
 end)
 
 later(function()
