@@ -127,6 +127,7 @@ now_if_args(function()
     "emmet_language_server",
     "vtsls",
     "basedpyright",
+    "tailwindcss",
   })
 end)
 
