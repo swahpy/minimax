@@ -183,12 +183,18 @@ end)
 
 -- 'mbbill/undotree' visualizes the undo history and makes it easy to browse and switch
 -- between different undo branches.
-now_if_args(function()
-  add({ "https://github.com/mbbill/undotree" })
-
-  vim.g.undotree_ShortIndicators = 1
-  vim.g.undotree_DiffAutoOpen = 0
-  vim.g.undotree_SetFocusWhenToggle = 1
+-- now_if_args(function()
+--   add({ "https://github.com/mbbill/undotree" })
+--
+--   vim.g.undotree_ShortIndicators = 1
+--   vim.g.undotree_DiffAutoOpen = 0
+--   vim.g.undotree_SetFocusWhenToggle = 1
+-- end)
+later(function()
+  vim.cmd("packadd nvim.undotree")
+  vim.keymap.set("n", "<leader>u", function()
+    require("undotree").open({ command = "leftabove 40vnew" })
+  end)
 end)
 
 -- 'obsidian-nvim/obsidian.nvim' built for people who love the concept of Obsidian:
