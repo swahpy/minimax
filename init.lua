@@ -115,7 +115,8 @@ Config.new_autocmd = function(event, pattern, callback, desc)
   vim.api.nvim_create_autocmd(event, opts)
 end
 
--- Define custom `vim.pack.add()` hook helper. See `:h vim.pack-events`.
+-- Define custom `vim.pack.add()` hook helper. Plugin data is passed as
+-- argument to the callback. See `:h vim.pack-events`.
 -- Example usage: see 'plugin/40_plugins.lua'.
 Config.on_packchanged = function(plugin_name, kinds, callback, desc)
   local f = function(ev)
@@ -126,7 +127,7 @@ Config.on_packchanged = function(plugin_name, kinds, callback, desc)
     if not ev.data.active then
       vim.cmd.packadd(plugin_name)
     end
-    callback()
+    callback(ev.data)
   end
   Config.new_autocmd("PackChanged", "*", f, desc)
 end
