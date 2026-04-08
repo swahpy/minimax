@@ -32,6 +32,8 @@ if vim.fn.exists('syntax_on') ~= 1 then vim.cmd('syntax enable') end
 vim.filetype.add({
   extension = {
     gohtml = "html",
+    gotmpl = "html",
+    tmpl = "html",
   },
 })
 
