@@ -172,6 +172,11 @@ later(function()
       xml = { "xmllint" },
       yaml = { "yq" },
     },
+    format_on_save = {
+      -- These options will be passed to conform.format()
+      timeout_ms = 300,
+      lsp_format = "fallback",
+    },
   })
 end)
 
