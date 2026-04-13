@@ -360,6 +360,14 @@ later(function()
   })
 end)
 
+later(function()
+  add({ "https://github.com/barrettruth/live-server.nvim" })
+  vim.g.live_server = {
+    port = 58080,
+    browser = false,
+  }
+end)
+
 -- Honorable mentions =========================================================
 
 -- 'mason-org/mason.nvim' (a.k.a. "Mason") is a great tool (package manager) for
