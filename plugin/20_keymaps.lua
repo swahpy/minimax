@@ -29,9 +29,10 @@ nmap("]p", '<Cmd>exe "iput "  . v:register<CR>', "Paste Below")
 
 nmap(";", ":", "CMD enter command mode")
 xmap(";", ":", "CMD enter command mode")
-nmap("hh", "<cmd>bprevious<cr>", "Prev Buffer")
-nmap("ll", "<cmd>bnext<cr>", "Next Buffer")
+nmap("gb", "<cmd>bprevious<cr>", "Prev Buffer")
+nmap("gn", "<cmd>bnext<cr>", "Next Buffer")
 
+nmap("_", "$", "move end of line")
 imap("<C-a>", "<ESC>^i", "move beginning of line")
 imap("<C-e>", "<End>", "move end of line")
 
