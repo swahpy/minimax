@@ -32,6 +32,8 @@ xmap(";", ":", "CMD enter command mode")
 
 nmap("gb", "^", "Move to line start")
 nmap("ge", "$", "Move to line end")
+xmap("gb", "^", "Move to line start")
+xmap("ge", "$", "Move to line end")
 imap("<C-a>", "<ESC>^i", "move beginning of line")
 imap("<C-e>", "<End>", "move end of line")
 
