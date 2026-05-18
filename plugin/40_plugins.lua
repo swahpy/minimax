@@ -361,12 +361,12 @@ end)
 later(function()
   add({ "https://github.com/coder/claudecode.nvim" })
   require("claudecode").setup({
-    terminal_cmd = "claude --model claude-sonnet-4-5-20250929",
+    terminal_cmd = "claude --model claude-opus-4-6",
   })
 end)
 
 later(function()
-  add({ "https://github.com/barrettruth/live-server.nvim" })
+  add({ "https://git.barrettruth.com/barrettruth/live-server.nvim.git" })
   vim.g.live_server = {
     port = 58080,
     browser = false,
