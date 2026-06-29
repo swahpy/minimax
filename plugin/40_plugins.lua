@@ -373,6 +373,44 @@ later(function()
   }
 end)
 
+-- lspeek.nvim: A small Neovim plugin to preview LSP definitions and type definitions in a read-only
+-- floating window.
+now_if_args(function()
+  add({ "https://github.com/r4ppz/lspeek.nvim" })
+  require("lspeek").setup({
+    window = {
+      width = 70,
+      height = 15,
+      border = "single", -- double | rounded | solid | shadow
+      -- Window-local options applied to the preview window.
+      -- Each key-value pair is set via vim.api.nvim_set_option_value.
+      win_opts = {
+        -- Examples:
+        -- signcolumn = "yes",
+        -- number = true,
+        -- relativenumber = true,
+      },
+    },
+    -- Limits the number of stacked preview windows.
+    stack_limit = 5,
+    -- LSP can return multiple definitions
+    -- (e.g., overloaded functions or multiple clients).
+    -- false = open vim.ui.select to pick one (pairs well with a picker plugin).
+    -- true  = skip the picker and preview the first result.
+    select_first = false,
+    -- Keymaps available inside the preview window.
+    keymaps = {
+      close = "q",
+      split = "s",
+      vsplit = "v",
+      enter = "<CR>",
+      tab = "t",
+      prev = "[",
+      next = "]",
+    },
+  })
+end)
+
 -- Honorable mentions =========================================================
 
 -- 'mason-org/mason.nvim' (a.k.a. "Mason") is a great tool (package manager) for

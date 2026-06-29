@@ -1,15 +1,15 @@
 {
   "plugins": {
     "claudecode.nvim": {
-      "rev": "102d835c964069c9c5e37abaf05ae4f9c3ee6f00",
+      "rev": "2390c6e45c4789072c293ac69de051d169668b29",
       "src": "https://github.com/coder/claudecode.nvim"
     },
     "conform.nvim": {
-      "rev": "18aeab3d63d350dcf44d64c462cc489a3412af40",
+      "rev": "619363c30309d29ffa631e67c8183f2a72caa373",
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "copilot.lua": {
-      "rev": "407349117f176789df6ec1c23bca72f34e15b4e8",
+      "rev": "7df55b20b5b653941f0bcff87e559cabb6fafeb0",
       "src": "https://github.com/zbirenbaum/copilot.lua"
     },
     "friendly-snippets": {
@@ -17,35 +17,39 @@
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "koda.nvim": {
-      "rev": "ff7ea32c2002ee18032629122f8232fc97e5ccb3",
+      "rev": "a7da3ced59eadafbda6eb4d7f7e2a6a3d9ecf858",
       "src": "https://github.com/oskarnurm/koda.nvim"
     },
     "live-server.nvim": {
       "rev": "f1a2defb7bc3bfc37bcb455fafdf6d61113d71c8",
       "src": "https://git.barrettruth.com/barrettruth/live-server.nvim.git"
     },
+    "lspeek.nvim": {
+      "rev": "7db5821ede27d03cf1a9613598c5e66abfa2f2db",
+      "src": "https://github.com/r4ppz/lspeek.nvim"
+    },
     "mason.nvim": {
-      "rev": "8e921c2b68571e978db5d4d3fef9c9a7f8755473",
+      "rev": "2a6940af80375532e5e9e7c1f2fc6319a1b7a69d",
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.nvim": {
-      "rev": "18797ed18f347d0d0da27fec28a67979b1207f70",
+      "rev": "1599a473aa6f5290a5d740b1144846e6f0c3963d",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "nvim-lspconfig": {
-      "rev": "3de240997fc3208eb29df5e5c17ba4665961bd84",
+      "rev": "3371bf298c1f56efc26771ee961f461176958fb5",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "obsidian.nvim": {
-      "rev": "896d4515a7193676aacf8a95239882397fdd6b27",
+      "rev": "3fab7347007710209284d101b287c337ad4aa39c",
       "src": "https://github.com/obsidian-nvim/obsidian.nvim"
     },
     "render-markdown.nvim": {
-      "rev": "629eb9533ec989d9d5c6cab8f3ad5372422c24e0",
+      "rev": "f422cb5c6855f150e2ddcfaf44e7157b98b34f6a",
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "tree-sitter-manager.nvim": {
-      "rev": "ac772144b8ff1ea3810cb697e09f32bdce79b811",
+      "rev": "ae305699da5e97b6cffdd5cc6f6045b1b0bd26ea",
       "src": "https://github.com/romus204/tree-sitter-manager.nvim"
     }
   }
