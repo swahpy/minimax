@@ -365,14 +365,6 @@ later(function()
   })
 end)
 
-later(function()
-  add({ "https://git.barrettruth.com/barrettruth/live-server.nvim.git" })
-  vim.g.live_server = {
-    port = 58080,
-    browser = false,
-  }
-end)
-
 -- lspeek.nvim: A small Neovim plugin to preview LSP definitions and type definitions in a read-only
 -- floating window.
 now_if_args(function()
