@@ -101,7 +101,7 @@ vim.o.completetimeout = 100
 -- Don't auto-wrap comments and don't insert comment leader after hitting 'o'.
 -- Do on `FileType` to always override these changes from filetype plugins.
 local f = function() vim.cmd('setlocal formatoptions-=c formatoptions-=o') end
-_G.Config.new_autocmd('FileType', nil, f, "Proper 'formatoptions'")
+Config.new_autocmd('FileType', nil, f, "Proper 'formatoptions'")
 
 -- Disable indentscope for some filetypes where it is not useful
 vim.api.nvim_create_autocmd("FileType", {

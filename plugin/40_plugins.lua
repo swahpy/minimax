@@ -361,7 +361,7 @@ end)
 later(function()
   add({ "https://github.com/coder/claudecode.nvim" })
   require("claudecode").setup({
-    terminal_cmd = "claude --model claude-opus-4-6",
+    terminal_cmd = "claude --settings ~/.claude/settings.aicore.json",
   })
 end)
 
@@ -427,7 +427,7 @@ now_if_args(function()
 end)
 
 -- Beautiful, usable, well maintained color schemes outside of 'mini.nvim' and
--- have full support of its highlight groups. Use if you don't like 'miniwinter'
+-- have full support of its highlight groups. Use if you don't like 'minischeme'
 -- enabled in 'plugin/30_mini.lua' or other suggested 'mini.hues' based ones.
 Config.now(function()
   -- Install only those that you need
@@ -438,6 +438,6 @@ Config.now(function()
     "https://github.com/oskarnurm/koda.nvim",
   })
 
-  -- Enable only one
-  vim.cmd("color koda-moss")
+  -- To override 'minischeme', uncomment only one color scheme.
+  -- vim.cmd("color koda-moss")
 end)

@@ -27,21 +27,22 @@
 local now, now_if_args, later = Config.now, Config.now_if_args, Config.later
 
 -- Step one ===================================================================
--- Enable 'miniwinter' color scheme. It comes with 'mini.nvim' and uses 'mini.hues'.
+-- Enable 'minischeme' color scheme. It comes with 'mini.nvim' and uses 'mini.hues'.
 --
 -- See also:
 -- - `:h mini.nvim-color-schemes` - list of other color schemes
 -- - `:h MiniHues-examples` - how to define highlighting with 'mini.hues'
 -- - 'plugin/40_plugins.lua' honorable mentions - other good color schemes
--- now(function() vim.cmd('colorscheme miniwinter') end)
+now(function()
+  vim.cmd("colorscheme minischeme")
+end)
 
 -- You can try these other 'mini.hues'-based color schemes (uncomment with `gcc`):
+-- now(function() vim.cmd('colorscheme miniwinter') end)
 -- now(function() vim.cmd('colorscheme minispring') end)
 -- now(function() vim.cmd('colorscheme minisummer') end)
 -- now(function() vim.cmd('colorscheme miniautumn') end)
-now(function()
-  vim.cmd("colorscheme randomhue")
-end)
+-- now(function() vim.cmd('colorscheme randomhue') end)
 
 -- Common configuration presets. Example usage:
 -- - `<C-s>` in Insert mode - save and go to Normal mode
@@ -119,6 +120,21 @@ end)
 -- - `:h MiniStarter-lifecycle` - how to work with Starter buffer
 now(function()
   require("mini.starter").setup()
+end)
+
+-- Statuscolumn. Sets `:h 'statuscolumn'` for improved window's left column.
+-- Example usage:
+-- - Shows differently in active and inactive windows. By default, with separator
+--   and dimmed respectively.
+-- - Reorders main sections (line number, folds, and signs) for a more efficient
+--   use of space.
+-- - Shows extra indication for virtual and wrapped lines.
+--
+-- See also:
+-- - `:h MiniStatuscolumn.config` - general overview of available configuration.
+-- - `:h MiniStatuscolumn.gen_content.main()` - simplified content customization.
+now(function()
+  require("mini.statuscolumn").setup()
 end)
 
 -- Statusline. Sets `:h 'statusline'` to show more info in a line below window.
@@ -199,7 +215,7 @@ now_if_args(function()
   local on_attach = function(ev)
     vim.bo[ev.buf].omnifunc = "v:lua.MiniCompletion.completefunc_lsp"
   end
-  _G.Config.new_autocmd("LspAttach", nil, on_attach, "Set 'omnifunc'")
+  Config.new_autocmd("LspAttach", nil, on_attach, "Set 'omnifunc'")
 
   -- Advertise to servers that Neovim now supports certain set of completion and
   -- signature features through 'mini.completion'.
@@ -248,7 +264,7 @@ now_if_args(function()
     MiniFiles.set_bookmark("p", vimpack_plugins, { desc = "Plugins" })
     MiniFiles.set_bookmark("w", vim.fn.getcwd, { desc = "Working directory" })
   end
-  _G.Config.new_autocmd("User", "MiniFilesExplorerOpen", add_marks, "Add bookmarks")
+  Config.new_autocmd("User", "MiniFilesExplorerOpen", add_marks, "Add bookmarks")
 end)
 
 -- Miscellaneous small but useful functions. Example usage:
@@ -842,7 +858,7 @@ later(function()
       MiniSnippets.session.stop()
     end
   end
-  _G.Config.new_autocmd("User", "MiniSnippetsSessionJump", fin_stop, "Stop snippets session")
+  Config.new_autocmd("User", "MiniSnippetsSessionJump", fin_stop, "Stop snippets session")
 
   -- Stop all sessions on Normal mode exit
   local make_stop = function()
@@ -854,7 +870,7 @@ later(function()
     end
     vim.api.nvim_create_autocmd("ModeChanged", au_opts)
   end
-  _G.Config.new_autocmd("User", "MiniSnippetsSessionStart", make_stop, "Stop snippets session")
+  Config.new_autocmd("User", "MiniSnippetsSessionStart", make_stop, "Stop snippets session")
 end)
 
 -- Split and join arguments (regions inside brackets between allowed separators).
