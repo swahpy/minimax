@@ -1,7 +1,7 @@
 {
   "plugins": {
     "claudecode.nvim": {
-      "rev": "6ad8e0fdbda84486f13f7f1fa4802942f4877f13",
+      "rev": "8bcc7bb816750405b624b4a4e05f9ef367715d1e",
       "src": "https://github.com/coder/claudecode.nvim"
     },
     "conform.nvim": {
@@ -9,7 +9,7 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "copilot.lua": {
-      "rev": "ba6c1c7e7b2b6b0a93838097bd09c7c83afa30d3",
+      "rev": "d1570ddc00fc4fc4caf7422803805ee22cca14ff",
       "src": "https://github.com/zbirenbaum/copilot.lua"
     },
     "friendly-snippets": {
@@ -17,7 +17,7 @@
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "koda.nvim": {
-      "rev": "a7da3ced59eadafbda6eb4d7f7e2a6a3d9ecf858",
+      "rev": "25a5c98ca2f6bb0b69f5e2654a78f0d7c7e0721d",
       "src": "https://github.com/oskarnurm/koda.nvim"
     },
     "lspeek.nvim": {
@@ -29,15 +29,15 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.nvim": {
-      "rev": "22619434ccca787cdb34406c97f0e395d4debadc",
+      "rev": "24cf4ad5840f0d092e3d8296b17eaf7026bf27f3",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "nvim-lspconfig": {
-      "rev": "4648fd8ba5c678d7e2db75ae44ffac269bb589d8",
+      "rev": "76f4cafc49677a34dc8ad8142b773d78ab4a041e",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "obsidian.nvim": {
-      "rev": "b5b6dae964aefdf3dd4eafa555068d9c82e6e23b",
+      "rev": "51d60b5b587538045bee5b2607a0880c6a73d942",
       "src": "https://github.com/obsidian-nvim/obsidian.nvim"
     },
     "plenary.nvim": {
@@ -49,7 +49,7 @@
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "tree-sitter-manager.nvim": {
-      "rev": "05c2328f1ffd84f1944f9ff9aeb0d5032c6e5c1e",
+      "rev": "81d83444d3ad56f613b70510a54313b44963a868",
       "src": "https://github.com/romus204/tree-sitter-manager.nvim"
     },
     "undotree": {
